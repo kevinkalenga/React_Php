@@ -1,11 +1,21 @@
 <?php
 
+require_once "models/front/API.manager.php";
 class APIController
 {
+    private $apiManager;
+
+    public function __construct()
+    {
+        $this->apiManager = new APIManager();
+    }
 
     public function getAnimaux()
     {
-        echo "Envoi des informations sur les animaux";
+        $animaux = $this->apiManager->getDBAnimaux();
+        echo "<pre>";
+        print_r($animaux);
+        echo "</pre>";
     }
     public function getAnimal($idAnimal)
     {
