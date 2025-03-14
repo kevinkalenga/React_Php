@@ -19,4 +19,13 @@ abstract class Model
         }
         return self::$pdo;
     }
+
+    //renvois de data au format json
+    public static function sendJSON($info)
+    {
+        // tout le monde pourra ecceder pour recup la data(frontend) et la data sera au format json
+        header("Access-Control-Allow-Origin: *");
+        header("Content-Type: application/json");
+        echo json_encode($info);
+    }
 }
